@@ -6,10 +6,10 @@ interface SuggestedQuestionsProps {
 }
 
 const suggestedQuestions = [
-  "투자 상품 추천해주세요",
-  "대출 금리가 궁금해요",
-  "보험 가입 문의",
-  "계좌 개설 방법",
+  "안녕하세요! 도움이 필요해요",
+  "이전 대화 내용을 확인하고 싶어요",
+  "새로운 주제로 대화하고 싶어요",
+  "대화 기록을 정리해주세요",
 ];
 
 export const SuggestedQuestions = ({ onQuestionClick, isLargeText = false }: SuggestedQuestionsProps) => {
