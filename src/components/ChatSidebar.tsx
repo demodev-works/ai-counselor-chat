@@ -50,7 +50,7 @@ export const ChatSidebar = ({
       <div className="p-4 border-b">
         <Button 
           variant="outline"
-          className="justify-start gap-2 border-primary text-primary hover:bg-primary/10"
+          className="justify-start gap-2 border-2 border-primary text-primary hover:bg-primary/10"
           size="lg"
           onClick={onNewChat}
         >
