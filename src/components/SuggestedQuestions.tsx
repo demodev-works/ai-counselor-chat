@@ -15,7 +15,7 @@ const suggestedQuestions = [
 export const SuggestedQuestions = ({ onQuestionClick, isLargeText = false }: SuggestedQuestionsProps) => {
   return (
     <div className="flex justify-end mb-6">
-      <div className="flex flex-col gap-2 max-w-sm">
+      <div className="grid grid-cols-2 gap-2 max-w-md">
         {suggestedQuestions.map((question, index) => (
           <button
             key={index}

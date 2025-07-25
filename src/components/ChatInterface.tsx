@@ -24,6 +24,9 @@ export const ChatInterface = () => {
   ]);
   const [isLargeText, setIsLargeText] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  
+  // 사용자 메시지가 있는지 확인 (초기 AI 메시지 제외)
+  const hasUserMessages = messages.some(message => message.isUser);
 
   const handleSendMessage = (text: string) => {
     const newMessage: Message = {
@@ -72,10 +75,12 @@ export const ChatInterface = () => {
                   />
                 ))}
               </div>
-              <SuggestedQuestions 
-                onQuestionClick={handleSendMessage}
-                isLargeText={isLargeText}
-              />
+              {!hasUserMessages && (
+                <SuggestedQuestions 
+                  onQuestionClick={handleSendMessage}
+                  isLargeText={isLargeText}
+                />
+              )}
             </div>
           </ScrollArea>
           
