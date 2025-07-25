@@ -84,15 +84,24 @@ export const ChatInterface = () => {
 
     setMessages((prev) => [...prev, newMessage]);
 
-    // AI 응답 시뮬레이션
+    // AI 응답 시뮬레이션 - 즉시 빈 메시지로 시작해서 로고가 바로 표시되도록
+    const aiResponseId = (Date.now() + 1).toString();
+    const emptyAiResponse: Message = {
+      id: aiResponseId,
+      text: "",
+      isUser: false,
+      timestamp: new Date(),
+    };
+    setMessages((prev) => [...prev, emptyAiResponse]);
+
     setTimeout(() => {
       const aiResponse: Message = {
-        id: (Date.now() + 1).toString(),
+        id: aiResponseId,
         text: "감사합니다. 말씀해주신 내용을 이해했습니다. 더 자세히 설명해주시겠어요?",
         isUser: false,
         timestamp: new Date(),
       };
-      setMessages((prev) => [...prev, aiResponse]);
+      setMessages((prev) => prev.map(msg => msg.id === aiResponseId ? aiResponse : msg));
     }, 1000);
   };
 
