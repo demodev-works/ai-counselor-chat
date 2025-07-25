@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChatHeader } from "./ChatHeader";
 import { ChatInput } from "./ChatInput";
 import { ChatMessage } from "./ChatMessage";
+import { ChatSidebar } from "./ChatSidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface Message {
@@ -44,23 +45,27 @@ export const ChatInterface = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-chat-background">
-      <ChatHeader />
+    <div className="flex h-screen bg-chat-background">
+      <ChatSidebar />
       
       <div className="flex-1 flex flex-col">
-        <ScrollArea className="flex-1">
-          <div className="max-w-4xl mx-auto px-4 py-8">
-            {messages.map((message) => (
-              <ChatMessage
-                key={message.id}
-                message={message.text}
-                isUser={message.isUser}
-              />
-            ))}
-          </div>
-        </ScrollArea>
+        <ChatHeader />
         
-        <ChatInput onSendMessage={handleSendMessage} />
+        <div className="flex-1 flex flex-col">
+          <ScrollArea className="flex-1">
+            <div className="max-w-4xl mx-auto px-4 py-8">
+              {messages.map((message) => (
+                <ChatMessage
+                  key={message.id}
+                  message={message.text}
+                  isUser={message.isUser}
+                />
+              ))}
+            </div>
+          </ScrollArea>
+          
+          <ChatInput onSendMessage={handleSendMessage} />
+        </div>
       </div>
     </div>
   );
