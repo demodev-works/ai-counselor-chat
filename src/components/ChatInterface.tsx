@@ -73,14 +73,17 @@ export const ChatInterface = () => {
                   isLargeText={isLargeText}
                 />
               ))}
-              {!hasUserMessages && (
-                <SuggestedQuestions 
-                  onQuestionClick={handleSendMessage}
-                  isLargeText={isLargeText}
-                />
-              )}
             </div>
           </ScrollArea>
+          
+          {!hasUserMessages && (
+            <div className="flex-shrink-0">
+              <SuggestedQuestions 
+                onQuestionClick={handleSendMessage}
+                isLargeText={isLargeText}
+              />
+            </div>
+          )}
           
           <div className="flex-shrink-0">
             <ChatInput onSendMessage={handleSendMessage} isLargeText={isLargeText} />
