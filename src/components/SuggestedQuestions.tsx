@@ -16,12 +16,6 @@ export const SuggestedQuestions = ({ onQuestionClick, isLargeText = false }: Sug
   return (
     <div className="flex justify-end mb-6">
       <div className="flex flex-col gap-2 max-w-sm">
-        <p className={cn(
-          "text-muted-foreground text-right mb-2",
-          isLargeText ? "text-base" : "text-xs"
-        )}>
-          예상 질문
-        </p>
         {suggestedQuestions.map((question, index) => (
           <button
             key={index}
