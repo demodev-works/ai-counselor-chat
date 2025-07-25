@@ -9,15 +9,15 @@ interface ChatSidebarProps {
 
 const mockConversations = {
   "이번 주": [
-    { id: "1", title: "투자 상담 문의", lastMessage: "감사합니다" },
-    { id: "2", title: "대출 관련 질문", lastMessage: "자세한 설명 부탁드립니다" },
+    { id: "1", title: "양식장 설치허가 문의", lastMessage: "감사합니다" },
+    { id: "2", title: "수산물 판매신고 관련", lastMessage: "자세한 설명 부탁드립니다" },
   ],
   "지난 주": [
-    { id: "3", title: "보험 상품 문의", lastMessage: "상품 비교해주세요" },
-    { id: "4", title: "계좌 개설 문의", lastMessage: "필요 서류가 궁금합니다" },
+    { id: "3", title: "어선원부 등록 문의", lastMessage: "서류 검토 완료되었나요?" },
+    { id: "4", title: "낚시터 운영신고", lastMessage: "필요 서류가 궁금합니다" },
   ],
   "이번 달": [
-    { id: "5", title: "신용카드 신청", lastMessage: "승인 기간이 어떻게 되나요?" },
+    { id: "5", title: "수산업법령 해석 문의", lastMessage: "관련 조항을 알려주세요" },
   ],
 };
 
