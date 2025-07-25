@@ -23,6 +23,9 @@ export const ChatHeader = ({ isLargeText, onToggleLargeText, isSidebarOpen, onTo
       </div>
       
       <div className="flex items-center gap-3">
+        <span className="text-white text-sm font-medium">
+          돋보기
+        </span>
         <Button
           variant="ghost"
           size="sm"
@@ -31,9 +34,6 @@ export const ChatHeader = ({ isLargeText, onToggleLargeText, isSidebarOpen, onTo
         >
           {isSidebarOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
         </Button>
-        <span className="text-white text-sm font-medium">
-          돋보기
-        </span>
         <Switch 
           checked={isLargeText} 
           onCheckedChange={onToggleLargeText}
