@@ -20,26 +20,17 @@ export const ChatHeader = ({ isLargeText, onToggleLargeText }: ChatHeaderProps) 
         </h1>
       </div>
       
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-3">
-          <Search className={cn(
-            "h-5 w-5 transition-all duration-300",
-            isLargeText ? "text-white" : "text-white/70"
-          )} />
-          <span className={cn(
-            "transition-all duration-300",
-            isLargeText ? "text-base font-medium text-white" : "text-sm text-white/80"
-          )}>
-            돋보기
-          </span>
-        </div>
+      <div className="flex items-center gap-3">
+        <span className="text-white text-sm font-medium">
+          돋보기
+        </span>
         <Switch 
           checked={isLargeText} 
           onCheckedChange={onToggleLargeText}
           className={cn(
-            "data-[state=checked]:bg-white data-[state=unchecked]:bg-white/20",
-            "border-2 transition-all duration-300",
-            isLargeText ? "border-white shadow-lg" : "border-white/30"
+            "h-6 w-11",
+            "data-[state=checked]:bg-red-500 data-[state=unchecked]:bg-white/30",
+            "transition-all duration-300"
           )}
         />
       </div>
