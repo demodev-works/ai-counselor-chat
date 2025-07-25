@@ -27,9 +27,9 @@ export const ChatInput = ({ onSendMessage, isLargeText = false }: ChatInputProps
           type="button"
           variant="ghost"
           size="icon"
-          className="shrink-0 h-10 w-10 rounded-full bg-header-bg hover:bg-header-bg/90 text-white"
+          className="shrink-0 h-10 w-10 rounded-full border-2 border-header-bg bg-background hover:bg-muted"
         >
-          <Plus className="h-4 w-4" />
+          <Plus className="h-4 w-4 text-header-bg" />
         </Button>
         
         <div className="flex-1 relative">
