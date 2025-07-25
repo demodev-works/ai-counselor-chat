@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Plus, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
+  isLargeText?: boolean;
 }
 
-export const ChatInput = ({ onSendMessage }: ChatInputProps) => {
+export const ChatInput = ({ onSendMessage, isLargeText = false }: ChatInputProps) => {
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -35,7 +37,10 @@ export const ChatInput = ({ onSendMessage }: ChatInputProps) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="메시지 보내기"
-            className="pr-12 h-12 rounded-full bg-chat-input-bg border-border focus:ring-2 focus:ring-primary/20 focus:border-primary"
+            className={cn(
+              "pr-12 rounded-full bg-chat-input-bg border-border focus:ring-2 focus:ring-primary/20 focus:border-primary",
+              isLargeText ? "h-14 text-lg" : "h-12 text-base"
+            )}
           />
           <Button
             type="submit"

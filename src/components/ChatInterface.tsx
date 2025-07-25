@@ -50,7 +50,7 @@ export const ChatInterface = () => {
       <ChatHeader isLargeText={isLargeText} onToggleLargeText={setIsLargeText} />
       
       <div className="flex flex-1">
-        <ChatSidebar />
+        <ChatSidebar isLargeText={isLargeText} />
         
         <div className="flex-1 flex flex-col">
           <ScrollArea className="flex-1">
@@ -66,7 +66,7 @@ export const ChatInterface = () => {
             </div>
           </ScrollArea>
           
-          <ChatInput onSendMessage={handleSendMessage} />
+          <ChatInput onSendMessage={handleSendMessage} isLargeText={isLargeText} />
         </div>
       </div>
     </div>

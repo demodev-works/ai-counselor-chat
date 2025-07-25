@@ -20,7 +20,7 @@ export const ChatMessage = ({ message, isUser, isLargeText = false }: ChatMessag
       )}>
         <p className={cn(
           "leading-relaxed whitespace-pre-wrap",
-          isLargeText ? "text-lg" : "text-sm"
+          isLargeText ? "text-xl" : "text-sm"
         )}>
           {message}
         </p>
