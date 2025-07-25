@@ -1,6 +1,6 @@
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
+import { Toggle } from "@/components/ui/toggle";
 import { cn } from "@/lib/utils";
 
 interface ChatHeaderProps {
@@ -21,13 +21,27 @@ export const ChatHeader = ({ isLargeText, onToggleLargeText }: ChatHeaderProps) 
       </div>
       
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
+        <Toggle
+          pressed={isLargeText}
+          onPressedChange={onToggleLargeText}
+          className={cn(
+            "flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300",
+            "bg-white/10 hover:bg-white/20 border border-white/20",
+            "data-[state=on]:bg-white/25 data-[state=on]:border-white/40",
+            "data-[state=on]:shadow-lg data-[state=on]:scale-105"
+          )}
+        >
+          <Search className={cn(
+            "h-4 w-4 transition-all duration-300",
+            isLargeText ? "text-white scale-110" : "text-white/80"
+          )} />
           <span className={cn(
-            "text-white/80",
-            isLargeText ? "text-base" : "text-sm"
-          )}>돋보기</span>
-        </div>
-        <Switch checked={isLargeText} onCheckedChange={onToggleLargeText} />
+            "text-white/80 transition-all duration-300",
+            isLargeText ? "text-base font-medium text-white" : "text-sm"
+          )}>
+            돋보기
+          </span>
+        </Toggle>
       </div>
     </header>
   );
