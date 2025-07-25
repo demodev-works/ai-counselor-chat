@@ -52,12 +52,6 @@ export const ChatSidebar = ({ isLargeText = false }: ChatSidebarProps) => {
                       {conversation.title}
                     </h4>
                     <p className={cn(
-                      "text-muted-foreground truncate mt-1",
-                      isLargeText ? "text-sm" : "text-xs"
-                    )}>
-                      {conversation.lastMessage}
-                    </p>
-                    <p className={cn(
                       "text-muted-foreground mt-1",
                       isLargeText ? "text-sm" : "text-xs"
                     )}>
