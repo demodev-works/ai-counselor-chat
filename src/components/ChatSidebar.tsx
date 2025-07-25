@@ -17,7 +17,7 @@ const mockConversations = [
 
 export const ChatSidebar = ({ isLargeText = false }: ChatSidebarProps) => {
   return (
-    <div className="w-79 bg-background border-r flex flex-col h-full">
+    <div className="w-72 bg-background border-r flex flex-col h-full">
       {/* 새 대화 버튼 */}
       <div className="p-4 border-b">
         <Button 
