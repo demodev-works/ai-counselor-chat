@@ -63,8 +63,8 @@ export const ChatInterface = () => {
         {isSidebarOpen && <ChatSidebar isLargeText={isLargeText} />}
         
         <div className="flex-1 flex flex-col">
-          <ScrollArea className="flex-1">
-            <div className="max-w-4xl mx-auto px-4 py-8 flex flex-col min-h-full">
+          <ScrollArea className="flex-1 bg-chat-background">
+            <div className="max-w-4xl mx-auto px-4 py-8 flex flex-col min-h-full bg-chat-background">
               <div className="flex-1">
                 {messages.map((message) => (
                   <ChatMessage
