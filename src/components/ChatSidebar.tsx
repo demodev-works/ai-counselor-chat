@@ -3,25 +3,47 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 
-interface ChatSidebarProps {
-  isLargeText?: boolean;
+interface Conversation {
+  id: string;
+  title: string;
+  messages: any[];
+  lastMessage: string;
+  timestamp: Date;
 }
 
-const mockConversations = {
-  "이번 주": [
-    { id: "1", title: "양식장 설치허가 문의", lastMessage: "감사합니다" },
-    { id: "2", title: "수산물 판매신고 관련", lastMessage: "자세한 설명 부탁드립니다" },
-  ],
-  "지난 주": [
-    { id: "3", title: "어선원부 등록 문의", lastMessage: "서류 검토 완료되었나요?" },
-    { id: "4", title: "낚시터 운영신고", lastMessage: "필요 서류가 궁금합니다" },
-  ],
-  "이번 달": [
-    { id: "5", title: "수산업법령 해석 문의", lastMessage: "관련 조항을 알려주세요" },
-  ],
+interface ChatSidebarProps {
+  isLargeText?: boolean;
+  conversations: Conversation[];
+  onNewChat: () => void;
+  onLoadConversation: (id: string) => void;
+  currentConversationId: string | null;
+}
+
+const getTimeGroup = (date: Date) => {
+  const now = new Date();
+  const diffInDays = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
+  
+  if (diffInDays < 7) return "이번 주";
+  if (diffInDays < 14) return "지난 주";
+  return "이번 달";
 };
 
-export const ChatSidebar = ({ isLargeText = false }: ChatSidebarProps) => {
+export const ChatSidebar = ({ 
+  isLargeText = false, 
+  conversations, 
+  onNewChat, 
+  onLoadConversation, 
+  currentConversationId 
+}: ChatSidebarProps) => {
+  // 대화들을 시간별로 그룹화
+  const groupedConversations = conversations.reduce((groups, conversation) => {
+    const timeGroup = getTimeGroup(conversation.timestamp);
+    if (!groups[timeGroup]) {
+      groups[timeGroup] = [];
+    }
+    groups[timeGroup].push(conversation);
+    return groups;
+  }, {} as Record<string, Conversation[]>);
   return (
     <div className="w-72 bg-background border-r flex flex-col h-full">
       {/* 새 대화 버튼 */}
@@ -29,6 +51,7 @@ export const ChatSidebar = ({ isLargeText = false }: ChatSidebarProps) => {
         <Button 
           className="justify-start gap-2 bg-primary hover:bg-primary/90 text-primary-foreground"
           size="lg"
+          onClick={onNewChat}
         >
           <Plus className="h-4 w-4" />
           <span className={cn(isLargeText ? "text-lg" : "text-sm")}>새 대화</span>
@@ -43,7 +66,7 @@ export const ChatSidebar = ({ isLargeText = false }: ChatSidebarProps) => {
         )}>이전 대화</h3>
         <ScrollArea className="h-full">
           <div className="space-y-4">
-            {Object.entries(mockConversations).map(([dateGroup, conversations]) => (
+            {Object.entries(groupedConversations).map(([dateGroup, conversationList]) => (
               <div key={dateGroup} className="space-y-2">
                 <h4 className={cn(
                   "text-muted-foreground font-medium px-2",
@@ -51,14 +74,23 @@ export const ChatSidebar = ({ isLargeText = false }: ChatSidebarProps) => {
                 )}>
                   {dateGroup}
                 </h4>
-                {conversations.map((conversation) => (
+                {conversationList.map((conversation) => (
                   <div
                     key={conversation.id}
-                    className="p-3 rounded-lg hover:bg-muted cursor-pointer transition-colors group"
+                    className={cn(
+                      "p-3 rounded-lg cursor-pointer transition-colors group",
+                      currentConversationId === conversation.id 
+                        ? "bg-primary/10 border border-primary/20" 
+                        : "hover:bg-muted"
+                    )}
+                    onClick={() => onLoadConversation(conversation.id)}
                   >
                     <div className="flex-1 min-w-0">
                       <h4 className={cn(
-                        "font-medium text-foreground truncate group-hover:text-primary",
+                        "font-medium truncate",
+                        currentConversationId === conversation.id
+                          ? "text-primary"
+                          : "text-foreground group-hover:text-primary",
                         isLargeText ? "text-base" : "text-sm"
                       )}>
                         {conversation.title}
