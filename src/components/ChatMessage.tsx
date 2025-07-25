@@ -17,7 +17,10 @@ export const ChatMessage = ({ message, isUser, isLargeText = false }: ChatMessag
         isUser ? "flex-row-reverse" : "flex-row"
       )}>
         {!isUser && (
-          <div className="flex-shrink-0 w-8 h-8 mt-1">
+          <div className={cn(
+            "flex-shrink-0 mt-1 transition-all duration-300",
+            isLargeText ? "w-12 h-12" : "w-10 h-10"
+          )}>
             <img 
               src="/lovable-uploads/f6fd0b32-ed0a-4d04-9bd2-46d182669f2b.png" 
               alt="AI Logo" 
