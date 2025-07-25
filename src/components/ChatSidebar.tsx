@@ -21,7 +21,7 @@ export const ChatSidebar = ({ isLargeText = false }: ChatSidebarProps) => {
       {/* 새 대화 버튼 */}
       <div className="p-4 border-b">
         <Button 
-          className="w-full justify-start gap-2 bg-primary hover:bg-primary/90 text-primary-foreground"
+          className="justify-start gap-2 bg-primary hover:bg-primary/90 text-primary-foreground"
           size="lg"
         >
           <Plus className="h-4 w-4" />
