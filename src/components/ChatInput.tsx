@@ -27,7 +27,7 @@ export const ChatInput = ({ onSendMessage, isLargeText = false }: ChatInputProps
           type="button"
           variant="ghost"
           size="icon"
-          className="shrink-0 h-10 w-10 rounded-full border border-border hover:bg-muted"
+          className="shrink-0 h-10 w-10 rounded-full bg-header-bg hover:bg-header-bg/90 text-white"
         >
           <Plus className="h-4 w-4" />
         </Button>
@@ -46,9 +46,9 @@ export const ChatInput = ({ onSendMessage, isLargeText = false }: ChatInputProps
             type="submit"
             size="icon"
             disabled={!message.trim()}
-            className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-primary hover:bg-primary/90 disabled:bg-muted disabled:text-muted-foreground transition-all"
+            className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full border-2 border-header-bg bg-background hover:bg-muted disabled:bg-muted disabled:border-muted transition-all"
           >
-            <ArrowUp className="h-4 w-4" />
+            <ArrowUp className="h-4 w-4 text-header-bg" />
           </Button>
         </div>
       </form>
