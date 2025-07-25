@@ -59,22 +59,20 @@ export const ChatInterface = () => {
         onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
       />
       
-      <div className="flex flex-1">
+      <div className="flex flex-1 overflow-hidden">
         {isSidebarOpen && <ChatSidebar isLargeText={isLargeText} />}
         
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col overflow-hidden">
           <ScrollArea className="flex-1 bg-chat-background">
-            <div className="max-w-4xl mx-auto px-4 py-8 flex flex-col min-h-full bg-chat-background">
-              <div className="flex-1">
-                {messages.map((message) => (
-                  <ChatMessage
-                    key={message.id}
-                    message={message.text}
-                    isUser={message.isUser}
-                    isLargeText={isLargeText}
-                  />
-                ))}
-              </div>
+            <div className="max-w-4xl mx-auto px-4 py-8 bg-chat-background">
+              {messages.map((message) => (
+                <ChatMessage
+                  key={message.id}
+                  message={message.text}
+                  isUser={message.isUser}
+                  isLargeText={isLargeText}
+                />
+              ))}
               {!hasUserMessages && (
                 <SuggestedQuestions 
                   onQuestionClick={handleSendMessage}
@@ -84,7 +82,9 @@ export const ChatInterface = () => {
             </div>
           </ScrollArea>
           
-          <ChatInput onSendMessage={handleSendMessage} isLargeText={isLargeText} />
+          <div className="flex-shrink-0">
+            <ChatInput onSendMessage={handleSendMessage} isLargeText={isLargeText} />
+          </div>
         </div>
       </div>
     </div>
