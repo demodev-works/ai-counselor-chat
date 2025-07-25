@@ -3,9 +3,10 @@ import { cn } from "@/lib/utils";
 interface ChatMessageProps {
   message: string;
   isUser: boolean;
+  isLargeText?: boolean;
 }
 
-export const ChatMessage = ({ message, isUser }: ChatMessageProps) => {
+export const ChatMessage = ({ message, isUser, isLargeText = false }: ChatMessageProps) => {
   return (
     <div className={cn(
       "flex w-full mb-6",
@@ -17,7 +18,10 @@ export const ChatMessage = ({ message, isUser }: ChatMessageProps) => {
           ? "bg-chat-user-bubble text-primary-foreground rounded-br-md" 
           : "bg-chat-ai-bubble border border-border rounded-bl-md"
       )}>
-        <p className="text-sm leading-relaxed whitespace-pre-wrap">
+        <p className={cn(
+          "leading-relaxed whitespace-pre-wrap",
+          isLargeText ? "text-lg" : "text-sm"
+        )}>
           {message}
         </p>
       </div>

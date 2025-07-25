@@ -21,6 +21,7 @@ export const ChatInterface = () => {
       timestamp: new Date(),
     },
   ]);
+  const [isLargeText, setIsLargeText] = useState(false);
 
   const handleSendMessage = (text: string) => {
     const newMessage: Message = {
@@ -46,7 +47,7 @@ export const ChatInterface = () => {
 
   return (
     <div className="flex flex-col h-screen bg-chat-background">
-      <ChatHeader />
+      <ChatHeader isLargeText={isLargeText} onToggleLargeText={setIsLargeText} />
       
       <div className="flex flex-1">
         <ChatSidebar />
@@ -59,6 +60,7 @@ export const ChatInterface = () => {
                   key={message.id}
                   message={message.text}
                   isUser={message.isUser}
+                  isLargeText={isLargeText}
                 />
               ))}
             </div>

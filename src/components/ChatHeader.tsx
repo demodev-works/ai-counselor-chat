@@ -2,7 +2,12 @@ import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 
-export const ChatHeader = () => {
+interface ChatHeaderProps {
+  isLargeText: boolean;
+  onToggleLargeText: (checked: boolean) => void;
+}
+
+export const ChatHeader = ({ isLargeText, onToggleLargeText }: ChatHeaderProps) => {
   return (
     <header className="flex items-center justify-between px-6 py-4 border-b bg-header-bg backdrop-blur">
       <div className="flex items-center">
@@ -15,7 +20,7 @@ export const ChatHeader = () => {
         <div className="flex items-center gap-2">
           <span className="text-sm text-white/80">돋보기</span>
         </div>
-        <Switch />
+        <Switch checked={isLargeText} onCheckedChange={onToggleLargeText} />
       </div>
     </header>
   );
