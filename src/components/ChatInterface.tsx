@@ -97,26 +97,7 @@ export const ChatInterface = () => {
   };
 
   const handleNewChat = () => {
-    // 현재 대화에 사용자 메시지가 있으면 저장
-    if (hasUserMessages) {
-      const userMessages = messages.filter(msg => msg.isUser);
-      const firstUserMessage = userMessages[0]?.text || "";
-      const title = firstUserMessage.length > 20 
-        ? firstUserMessage.substring(0, 20) + "..." 
-        : firstUserMessage || "새 대화";
-      
-      const newConversation: Conversation = {
-        id: Date.now().toString(),
-        title,
-        messages: [...messages],
-        lastMessage: messages[messages.length - 1]?.text || "",
-        timestamp: new Date(),
-      };
-      
-      setConversations(prev => [newConversation, ...prev]);
-    }
-    
-    // 새 대화 시작
+    // 새 대화 시작 (현재 대화는 자동 저장하지 않음)
     setMessages([
       {
         id: Date.now().toString(),
