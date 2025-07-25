@@ -45,11 +45,11 @@ export const ChatInterface = () => {
   };
 
   return (
-    <div className="flex h-screen bg-chat-background">
-      <ChatSidebar />
+    <div className="flex flex-col h-screen bg-chat-background">
+      <ChatHeader />
       
-      <div className="flex-1 flex flex-col">
-        <ChatHeader />
+      <div className="flex flex-1">
+        <ChatSidebar />
         
         <div className="flex-1 flex flex-col">
           <ScrollArea className="flex-1">
