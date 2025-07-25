@@ -6,10 +6,10 @@ interface SuggestedQuestionsProps {
 }
 
 const suggestedQuestions = [
-  "안녕하세요! 도움이 필요해요",
-  "이전 대화 내용을 확인하고 싶어요",
-  "새로운 주제로 대화하고 싶어요",
-  "대화 기록을 정리해주세요",
+  "어업면허 신청 절차가 궁금해요",
+  "양식업 허가 조건을 알고 싶어요",
+  "수산물 유통업 신고 방법 문의",
+  "어선등록 및 운항 관련 규정",
 ];
 
 export const SuggestedQuestions = ({ onQuestionClick, isLargeText = false }: SuggestedQuestionsProps) => {
