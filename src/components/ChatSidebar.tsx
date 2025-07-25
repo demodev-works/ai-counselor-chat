@@ -12,7 +12,7 @@ const mockConversations = [
 
 export const ChatSidebar = () => {
   return (
-    <div className="w-76 bg-background border-r flex flex-col h-full">
+    <div className="w-80 bg-background border-r flex flex-col h-full">
       {/* 새 대화 버튼 */}
       <div className="p-4 border-b">
         <Button 
