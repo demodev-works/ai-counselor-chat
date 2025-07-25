@@ -27,11 +27,7 @@ export const ChatHeader = ({ isLargeText, onToggleLargeText }: ChatHeaderProps) 
         <Switch 
           checked={isLargeText} 
           onCheckedChange={onToggleLargeText}
-          className={cn(
-            "h-6 w-11",
-            "data-[state=checked]:bg-red-500 data-[state=unchecked]:bg-white/30",
-            "transition-all duration-300"
-          )}
+          className="h-6 w-11"
         />
       </div>
     </header>
