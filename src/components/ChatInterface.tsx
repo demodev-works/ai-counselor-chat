@@ -3,6 +3,7 @@ import { ChatHeader } from "./ChatHeader";
 import { ChatInput } from "./ChatInput";
 import { ChatMessage } from "./ChatMessage";
 import { ChatSidebar } from "./ChatSidebar";
+import { SuggestedQuestions } from "./SuggestedQuestions";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface Message {
@@ -69,6 +70,10 @@ export const ChatInterface = () => {
                   isLargeText={isLargeText}
                 />
               ))}
+              <SuggestedQuestions 
+                onQuestionClick={handleSendMessage}
+                isLargeText={isLargeText}
+              />
             </div>
           </ScrollArea>
           
