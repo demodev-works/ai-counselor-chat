@@ -22,6 +22,7 @@ export const ChatInterface = () => {
     },
   ]);
   const [isLargeText, setIsLargeText] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleSendMessage = (text: string) => {
     const newMessage: Message = {
@@ -47,10 +48,15 @@ export const ChatInterface = () => {
 
   return (
     <div className="flex flex-col h-screen bg-chat-background">
-      <ChatHeader isLargeText={isLargeText} onToggleLargeText={setIsLargeText} />
+      <ChatHeader 
+        isLargeText={isLargeText} 
+        onToggleLargeText={setIsLargeText}
+        isSidebarOpen={isSidebarOpen}
+        onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+      />
       
       <div className="flex flex-1">
-        <ChatSidebar isLargeText={isLargeText} />
+        {isSidebarOpen && <ChatSidebar isLargeText={isLargeText} />}
         
         <div className="flex-1 flex flex-col">
           <ScrollArea className="flex-1">
