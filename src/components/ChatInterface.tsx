@@ -61,15 +61,17 @@ export const ChatInterface = () => {
         
         <div className="flex-1 flex flex-col">
           <ScrollArea className="flex-1">
-            <div className="max-w-4xl mx-auto px-4 py-8">
-              {messages.map((message) => (
-                <ChatMessage
-                  key={message.id}
-                  message={message.text}
-                  isUser={message.isUser}
-                  isLargeText={isLargeText}
-                />
-              ))}
+            <div className="max-w-4xl mx-auto px-4 py-8 flex flex-col min-h-full">
+              <div className="flex-1">
+                {messages.map((message) => (
+                  <ChatMessage
+                    key={message.id}
+                    message={message.text}
+                    isUser={message.isUser}
+                    isLargeText={isLargeText}
+                  />
+                ))}
+              </div>
               <SuggestedQuestions 
                 onQuestionClick={handleSendMessage}
                 isLargeText={isLargeText}
