@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import aiLogo from "@/assets/ai-logo.png";
 
 interface ChatMessageProps {
   message: string;
@@ -20,7 +19,7 @@ export const ChatMessage = ({ message, isUser, isLargeText = false }: ChatMessag
         {!isUser && (
           <div className="flex-shrink-0 w-8 h-8 mt-1">
             <img 
-              src={aiLogo} 
+              src="/lovable-uploads/f6fd0b32-ed0a-4d04-9bd2-46d182669f2b.png" 
               alt="AI Logo" 
               className="w-full h-full object-contain"
             />
