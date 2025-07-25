@@ -26,6 +26,11 @@ export const ChatHeader = ({ isLargeText, onToggleLargeText, isSidebarOpen, onTo
         <span className="text-white text-sm font-medium">
           돋보기
         </span>
+        <Switch 
+          checked={isLargeText} 
+          onCheckedChange={onToggleLargeText}
+          className="h-6 w-11"
+        />
         <Button
           variant="ghost"
           size="sm"
@@ -34,11 +39,6 @@ export const ChatHeader = ({ isLargeText, onToggleLargeText, isSidebarOpen, onTo
         >
           {isSidebarOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
         </Button>
-        <Switch 
-          checked={isLargeText} 
-          onCheckedChange={onToggleLargeText}
-          className="h-6 w-11"
-        />
       </div>
     </header>
   );
