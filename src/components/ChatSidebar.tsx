@@ -8,19 +8,15 @@ interface ChatSidebarProps {
 }
 
 const mockConversations = {
-  "오늘": [
+  "이번 주": [
     { id: "1", title: "투자 상담 문의", lastMessage: "감사합니다" },
-  ],
-  "어제": [
     { id: "2", title: "대출 관련 질문", lastMessage: "자세한 설명 부탁드립니다" },
   ],
-  "2일 전": [
+  "지난 주": [
     { id: "3", title: "보험 상품 문의", lastMessage: "상품 비교해주세요" },
-  ],
-  "3일 전": [
     { id: "4", title: "계좌 개설 문의", lastMessage: "필요 서류가 궁금합니다" },
   ],
-  "1주일 전": [
+  "이번 달": [
     { id: "5", title: "신용카드 신청", lastMessage: "승인 기간이 어떻게 되나요?" },
   ],
 };
