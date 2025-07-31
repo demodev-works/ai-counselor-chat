@@ -19,8 +19,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="w-full max-w-sm space-y-8 rounded-xl border border-gray-200 bg-white p-8">
+    <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4 sm:px-0">
+      <div className="w-full max-w-sm space-y-8 rounded-xl border border-gray-200 bg-white p-6 sm:p-8 mx-0 sm:mx-auto">
         <div className="text-center space-y-2">
           <h1 className="text-3xl font-bold text-header-bg tracking-tight bg-">
             AI 상담사
